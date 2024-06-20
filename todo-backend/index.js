@@ -39,6 +39,11 @@ app.use(
 );
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    return res.send(
+        `<h1>You are on the Home Page of Server</h1>`
+    );
+});
 app.use("/api/users", userRoutes);
 app.use("/api/activities", activityRoutes);
 
