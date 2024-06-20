@@ -13,7 +13,7 @@ const TodoList = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/activities", {
+        const res = await axios.get("https://todo-activitylist.onrender.com/api/activities", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setActivities(res.data);
@@ -45,7 +45,7 @@ const TodoList = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/activities",
+        "https://todo-activitylist.onrender.com/api/activities",
         { name },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -73,7 +73,7 @@ const TodoList = () => {
       if (action === "Pause" || action === "End") {
         // Call the duration update API
         await axios.put(
-          `http://localhost:5000/api/activities/${id}/duration`,
+          `https://todo-activitylist.onrender.com/api/activities/${id}/duration`,
           { duration: durn },
           {
             headers: {
@@ -90,7 +90,7 @@ const TodoList = () => {
         );
       }
       const res = await axios.put(
-        `http://localhost:5000/api/activities/${id}`,
+        `https://todo-activitylist.onrender.com/api/activities/${id}`,
         { action },
         {
           headers: {
